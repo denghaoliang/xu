@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<style>
+			#button{
+				width: 100px;
+				height: 50px;
+			}
+		</style>
+	</head>
+	<script src="jquery-3.2.1.min.js"></script>
+	<body>
+		<p>您所在的位置：</p>
+  <div style="color: red;">经度：<span id="jingdu"></span></div>
+<div style="color: blue;">纬度：<span id="weidu"></span></div>
+<div style="color: gold;">属于：<span id="guojia"></span>-<span id="sheng"></span> </div>
+
+<button  onclick="getLocation()" id="button">试一下</button>
+<!--<button id="button">按钮</button>-->
+	</body>
+	<script>
+      var y=document.getElementById("jingdu");
+      var x=document.getElementById("weidu");
+      var jd=null
+      var wd=null 
+	function getLocation(){
+	
+		if (navigator.geolocation)
+		    {
+		    navigator.geolocation.getCurrentPosition(showPosition);
+		    }
+		else{x.innerHTML="Geolocation is not supported by this browser.";}
+		}
+			function showPosition(position){
+				y.innerHTML=position.coords.longitude
+			    x.innerHTML=position.coords.latitude
+			   jd=Number(position.coords.longitude) 
+			   wd=Number(position.coords.latitude) 
+			
+			}
+
+ </script>
+ <script type="text/javascript" src="ajax.js" ></script>
+
+</html>
